@@ -40,33 +40,21 @@ app.get('/', (req, res) => {
     res.render('formulario');
 });
 
-//Rota de cadastro
-
-app.post('/cadastrar', (req, res) => {
-    const { nome, idade, email, senha} = req.body;
-    const sql = `INSERT INTO cliente (nome, idade, email, senha) VALUES ('${nome}', ${idade}, '${email}', '${senha}')`;
-    conexao.query(sql, function(err, result){
-        if(err) throw err;
-        console.log('Usuário cadastrado com sucesso!');
-        res.render('formulario');
-    });
-
-
-
-// app.post('/cadastrar', (req, res) => {
-//     const { nome, valor, imagem } = req.body;
-//     const sql = `INSERT INTO cliente (nome, idade, imagem) VALUES ('${nome}', '${valor}', '${imagem}')`;
+// Rota de cadastro
+// app.post('/cadastro', (req, res) => {
+//     const { nome, email, senha } = req.body;
+//     const sql = `INSERT INTO usuarios (nome, email, senha) VALUES ('${nome}', '${email}', '${senha}')`;
 //     conexao.query(sql, function(err, result){
 //         if(err) throw err;
 //         console.log('Usuário cadastrado com sucesso!');
 //         res.render('formulario');
 //     });
-});
+// });
 // Rota de cadastro
-    //  app.post('/cadastrar', function(req, res){
-    //    console.log(req.body);
-    //    res.end(); 
-    // });
+     app.post('/cadastrar', function(req, res){
+       console.log(req.body);
+       res.end(); 
+    });
 
 app.listen(8080, () => {
     console.log('Rodando app listening at http://localhost:8080');
