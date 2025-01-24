@@ -50,6 +50,8 @@ app.get('/', (req, res) => {
 // Rota de cadastro
      app.post('/cadastrar', function(req, res){
        console.log(req.body);
+       console.log(req.files.imagem);
+       req.files.imagem.mv(__dirname+'./imagens/' + req.files.imagem.name,
        res.end(); 
     });
 
