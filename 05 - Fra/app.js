@@ -8,10 +8,6 @@ app.get('/', (req, res) => {
     res.end();
 });
 
-app.listen(port, () => {
-    console.log(`Rodando app listening at http://localhost:${port}`);
+app.listen(8080, () => {
+    console.log('Rodando app listening at http://localhost:8080');
   });
-
-// Define the port
-const port = 8080;
-
