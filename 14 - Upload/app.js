@@ -40,16 +40,7 @@ app.get('/', (req, res) => {
     res.render('formulario');
 });
 
-// Rota de cadastro
-// app.post('/cadastro', (req, res) => {
-//     const { nome, email, senha } = req.body;
-//     const sql = `INSERT INTO usuarios (nome, email, senha) VALUES ('${nome}', '${email}', '${senha}')`;
-//     conexao.query(sql, function(err, result){
-//         if(err) throw err;
-//         console.log('Usuário cadastrado com sucesso!');
-//         res.render('formulario');
-//     });
-// });
+
 // Rota de cadastro
      app.post('/cadastrar', function(req, res){
        console.log(req.body);
