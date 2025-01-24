@@ -8,6 +8,9 @@ const { engine } = require('express-handlebars');
 const mysql = require('mysql2');
 // App
 const app = express();
+
+// Adiciona o bootstrap
+app.use('/bootstrap', express.static('./node_modules/bootstrap/dist'));
 // configuração do handlebars
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
