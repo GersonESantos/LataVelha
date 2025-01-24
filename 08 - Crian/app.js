@@ -4,6 +4,19 @@ const express = require('express');
 const mysql = require('mysql2');
 // App
 const app = express();
+// configuração do banco de dados
+
+const conexao = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Gabibi89*',
+    database: 'projeto'
+}); 
+// Conectar
+conexao.connect(function(err){
+    if(err) throw err;
+    console.log('Conectado com sucesso!');
+});
 
 app.get('/', (req, res) => {
     res.write('Hello World!');
