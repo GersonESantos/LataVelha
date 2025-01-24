@@ -1,6 +1,9 @@
 // Import the express library
 const express = require('express');
 
+// Importa fileupload
+const fileUpload = require('express-fileupload');
+
 // Importa o módulo express-handlebars
 const { engine } = require('express-handlebars');
 
@@ -8,6 +11,9 @@ const { engine } = require('express-handlebars');
 const mysql = require('mysql2');
 // App
 const app = express();
+
+//  habilita o fileupload
+app.use(fileUpload());
 
 // Adiciona o bootstrap
 app.use('/bootstrap', express.static('./node_modules/bootstrap/dist'));
