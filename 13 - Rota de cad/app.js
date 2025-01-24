@@ -19,7 +19,11 @@ app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 // configuração do banco de dados
+// manipulação de dados
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
 
+// Conexão com o banco de dados
 const conexao = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -35,6 +39,22 @@ conexao.connect(function(err){
 app.get('/', (req, res) => {
     res.render('formulario');
 });
+
+// Rota de cadastro
+// app.post('/cadastro', (req, res) => {
+//     const { nome, email, senha } = req.body;
+//     const sql = `INSERT INTO usuarios (nome, email, senha) VALUES ('${nome}', '${email}', '${senha}')`;
+//     conexao.query(sql, function(err, result){
+//         if(err) throw err;
+//         console.log('Usuário cadastrado com sucesso!');
+//         res.render('formulario');
+//     });
+// });
+// Rota de cadastro
+     app.post('/cadastrar', function(req, res){
+       console.log(req.body);
+       res.end(); 
+    });
 
 app.listen(8080, () => {
     console.log('Rodando app listening at http://localhost:8080');
