@@ -43,8 +43,8 @@ app.get('/', (req, res) => {
 //Rota de cadastro
 
 app.post('/cadastrar', (req, res) => {
-    const { nome, idade, email} = req.body;
-    const sql = `INSERT INTO cliente (nome, idade, email) VALUES ('${nome}', ${idade}, '${email}')`;
+    const { nome, idade, email, senha} = req.body;
+    const sql = `INSERT INTO cliente (nome, idade, email, senha) VALUES ('${nome}', ${idade}, '${email}', '${senha}')`;
     conexao.query(sql, function(err, result){
         if(err) throw err;
         console.log('Usuário cadastrado com sucesso!');
