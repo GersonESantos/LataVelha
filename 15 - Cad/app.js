@@ -68,7 +68,7 @@ app.post('/cadastrar', function(req, res){
         req.files.imagem.mv(__dirname+'/imagens/'+req.files.imagem.name);
         console.log(retorno);
     });
-
+    res.redirect('/');
 
 });
 
