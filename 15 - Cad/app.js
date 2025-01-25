@@ -70,7 +70,7 @@ app.post('/cadastrar', function(req, res){
     });
 
 
-
+});
 
 
 
