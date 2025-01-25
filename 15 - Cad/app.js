@@ -48,20 +48,32 @@ app.get('/', (req, res) => {
 
 // Rota de cadastro
 
+
+// Rota para cadastro
 app.post('/cadastrar', function(req, res){
-    console.log(req.body);
-    console.log(req.files.imagem.name);
+    // Obter os dados que serão utiliados para o cadastro
     let nome = req.body.nome;
     let valor = req.body.valor;
-    let imagem = req.files.imagem.name ;
-    // Salvar no banco de dados 
+    let imagem = req.files.imagem.name;
+
+    // SQL
     let sql = `INSERT INTO produtos (nome, valor, imagem) VALUES ('${nome}', ${valor}, '${imagem}')`;
-     conexao.query(sql, function(erro, result){
+        
+    // Executar comando SQL
+    conexao.query(sql, function(erro, retorno){
+        // Caso ocorra algum erro
         if(erro) throw erro;
-        req.files.imagem.mv(__dirname + '/imagens/' + req.files.imagem.name);
-        console.log('resultado:', result);   
-     });
+
+        // Caso ocorra o cadastro
+        req.files.imagem.mv(__dirname+'/imagens/'+req.files.imagem.name);
+        console.log(retorno);
     });
+
+
+
+
+
+
     // Redirecionar
 
 app.listen(8080, () => {
